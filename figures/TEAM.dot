@@ -1,0 +1,22 @@
+// Ground rescue team: one team, two duties.
+// Edge labels are TCT event numbers. Self-loops on unrelated events are omitted;
+// the captions state that they are present in the model.
+digraph TEAM {
+  rankdir=LR;
+  graph [fontname="Arial", bgcolor="white", nodesep=0.3, ranksep=0.75, pad=0.08];
+  node [shape=circle, fontname="Arial", fontsize=11, width=0.55, fixedsize=true,
+        color="#294861", penwidth=1.1];
+  edge [fontname="Arial", fontsize=10, color="#496B83", arrowsize=0.62];
+  start [shape=point, width=0.07, color="#294861"];
+  start -> 0 [color="#294861"];
+  0 [shape=doublecircle];
+  { rank=same; 1; 2; 3; }
+  0 -> 1 [label="9, 21"];
+  0 -> 2 [label="5"];
+  0 -> 3 [label="17"];
+  1 -> 0 [label="10, 22"];
+  2 -> 0 [label="6"];
+  2 -> 1 [label="21"];
+  3 -> 0 [label="18"];
+  3 -> 1 [label="9"];
+}

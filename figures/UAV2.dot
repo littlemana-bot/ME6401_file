@@ -1,0 +1,25 @@
+// UAV2 plant automaton (design C).
+// Edge labels are TCT event numbers. Self-loops on unrelated events are omitted;
+// the captions state that they are present in the model.
+digraph UAV2 {
+  rankdir=LR;
+  graph [fontname="Arial", bgcolor="white", nodesep=0.18, ranksep=0.4, pad=0.08];
+  node [shape=circle, fontname="Arial", fontsize=11, width=0.46, fixedsize=true,
+        color="#294861", penwidth=1.1];
+  edge [fontname="Arial", fontsize=10, color="#496B83", arrowsize=0.62];
+  start [shape=point, width=0.07, color="#294861"];
+  start -> 0 [color="#294861"];
+  0 [shape=doublecircle];
+  1 [shape=doublecircle];
+  { rank=same; 2; 3; }
+  0 -> 1 [label="13"];
+  1 -> 0 [label="15"];
+  1 -> 2 [label="14"];
+  1 -> 3 [label="16, 26"];
+  2 -> 4 [label="20"];
+  3 -> 0 [label="18"];
+  3 -> 3 [label="17"];
+  4 -> 1 [label="23"];
+  4 -> 5 [label="21"];
+  5 -> 1 [label="22"];
+}

@@ -1,0 +1,18 @@
+// TCT workflow for design C with the measured model sizes.
+digraph SynthesisFlow {
+  rankdir=TB;
+  graph [fontname="Arial", bgcolor="white", nodesep=0.20, ranksep=0.30, pad=0.06];
+  node [shape=box, style="rounded,filled", fontname="Arial", fontsize=10,
+        color="#294861", fillcolor="#EAF2F8", margin="0.12,0.075"];
+  edge [fontname="Arial", fontsize=9.5, color="#496B83", arrowsize=0.7];
+
+  ENT [label="Three entity automata\nUAV1 6/11, UAV2 6/11, TEAM 4/10\n(states / transitions)"];
+  G   [label="Plant G = Sync(UAV1, UAV2, TEAM)\n45 states, 140 transitions", fillcolor="#DDEBF7"];
+  H   [label="Specification H = Meet(SPEC COVERAGE, SPEC FIFO)\n20 states, 234 transitions", fillcolor="#DDEBF7"];
+  M   [label="Supervisor M* = Supcon(G, H)\n46 states, 128 transitions", fillcolor="#D9EAD3"];
+
+  ENT -> G;
+  G -> H [style=invis];
+  H -> M;
+  G -> M [constraint=false];
+}
